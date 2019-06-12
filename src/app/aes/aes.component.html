@@ -1,0 +1,72 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="AES"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+
+	<TabView id="tabViewContainer">
+
+            <StackLayout *tabItem="{title: 'Encryption'}">
+                <ScrollView>
+                    <StackLayout>
+
+                        <Label class="page-text" text="The Advanced Encryption Standard, or AES, is a symmetric block cipher chosen by the U.S. government to protect classified information and is implemented in software and hardware throughout the world to encrypt sensitive data" textWrap="true"></Label>
+
+                        <StackLayout class="hr-light"></StackLayout>
+
+                        <StackLayout class="input-field">
+                            <Label class="page-text" text="Input:" textWrap="true"></Label>
+                            <TextView [(ngModel)]="tvtext" hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
+                        </StackLayout>
+
+                        <Button class="btn btn-primary btn-active" id="button" text="Encrypt!" (tap)="showText()"></Button>
+
+                        <StackLayout class="input-field">
+                            <Label class="page-text" text="Output:" textWrap="true"></Label>
+                            <TextView [(ngModel)]="tvstext" hint="The encypted message will appear here" [editable]="editState" class="input input-border page-text-input"></TextView>
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <StackLayout *tabItem="{title: 'Decryption'}">
+                <ScrollView>
+                    <StackLayout>
+
+                        <Label class="page-text" text="The Advanced Encryption Standard, or AES, is a symmetric block cipher chosen by the U.S. government to protect classified information and is implemented in software and hardware throughout the world to encrypt sensitive data" textWrap="true"></Label>
+
+                        <StackLayout class="hr-light"></StackLayout>
+
+                        <StackLayout class="input-field">
+                            <Label class="page-text" text="Input:" textWrap="true"></Label>
+                            <TextView [(ngModel)]="tvtext" hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
+                        </StackLayout>
+
+                        <Button class="btn btn-primary btn-active" id="button" text="Encrypt!" (tap)="showText()"></Button>
+
+                        <StackLayout class="input-field">
+                            <Label class="page-text" text="Output:" textWrap="true"></Label>
+                            <TextView [(ngModel)]="tvstext" hint="The encypted message will appear here" [editable]="editState" class="input input-border page-text-input"></TextView>
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+    </TabView>
+
+</GridLayout>

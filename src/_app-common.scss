@@ -1,0 +1,99 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+// Font icon class
+.fa {
+    font-family: "FontAwesome";
+}
+// Common page class
+.page-content {
+    .page-placeholder {
+        color: $page-icon-color;
+        font-size: $page-content-placeholder-font-size;
+        vertical-align: center;
+        horizontal-align: center;
+    }
+
+    .page-icon {
+        font-size: 72;
+        vertical-align: top;
+        horizontal-align: center;
+        color: $page-icon-color;
+        margin-top: 20%;
+    }
+    .page-text {
+        color: $grey-dark;
+        font-size: $page-content-text-font-size;
+        margin: 0% 2% 0% 2%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        letter-spacing: 0.02%;
+    }
+
+    .page-text-input {
+        margin: 0% 2% 0% 2%;
+        background-color: $textview-color;
+    }
+
+}
+
+//Action bar
+ActionBar .action-bar-title {
+    horizontal-align: center;
+}
+
+ // Drawer navigation custom styles
+$sidedrawer-header-image-size: 60;
+$sidedrawer-header-image-offset-top: 20;
+$sidedrawer-header-image-offset-bottom: 5;
+$sidedrawer-list-item-offset-left: 15;
+$sidedrawer-list-icon-offset: 10;
+$sidedrawer-list-icon-size: 20;
+
+.sidedrawer {
+    &.sidedrawer-left {
+        background-color: $ab-background;
+
+        .margin-top-element {
+            margin-bottom: $sidedrawer-header-image-offset-bottom;
+            margin-top: $sidedrawer-header-image-offset-top;
+        }
+
+        .footnote {
+            color: rgba($ab-color, 0.5);
+        }
+    }
+
+    .sidedrawer-header {
+        background-color: $ab-background;
+
+        .sidedrawer-header-brand {
+            color: $ab-color;
+        }
+    }
+
+    .sidedrawer-content {
+        background-color: $side-drawer-background;
+
+        $sidedrawer-list-item-offset-left: 15;
+        $sidedrawer-list-icon-offset: 10;
+        $sidedrawer-list-icon-size: 20;
+
+        .sidedrawer-list-item {
+            padding-left: $sidedrawer-list-item-offset-left;
+            Label {
+                vertical-align: center;
+                color: $blue-dark;
+            }
+            .fa {
+                width: $sidedrawer-list-icon-size;
+                margin-right: $sidedrawer-list-icon-offset;
+            }
+            &.selected {
+                background-color: $item-active-background;
+                Label {
+                    color: $item-active-color;
+                }
+            }
+        }
+    }
+}
