@@ -29,14 +29,14 @@
 
                         <StackLayout class="input-field">
                             <Label class="page-text" text="Input:" textWrap="true"></Label>
-                            <TextView [(ngModel)]="tvtext" hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
+                            <TextView [ngModel]="input" (ngModelChange)='input=$event' hint="Try it osut" [editable]="editState" class="input input-border page-text-input"></TextView>
                         </StackLayout>
 
-                        <Button class="btn btn-primary btn-active" id="button" text="Encrypt!" (tap)="showText()"></Button>
+                        <Button class="btn btn-primary btn-active" id="button" text="Encrypt!" (tap)="encrypt()"></Button>
 
                         <StackLayout class="input-field">
                             <Label class="page-text" text="Output:" textWrap="true"></Label>
-                            <TextView [(ngModel)]="tvstext" hint="The encypted message will appear here" [editable]="editState" class="input input-border page-text-input"></TextView>
+                            <TextView [(ngModel)]="output" hint="The encypted message will appear here" android:loaded="makeSelectable" [editable]="false" class="input input-border page-text-input"></TextView>
                         </StackLayout>
 
                     </StackLayout>
@@ -53,7 +53,7 @@
 
                         <StackLayout class="input-field">
                             <Label class="page-text" text="Input:" textWrap="true"></Label>
-                            <TextView [(ngModel)]="tvtext" hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
+                            <TextView [(ngModel)]="tvtdext" hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
                         </StackLayout>
 
                         <Button class="btn btn-primary btn-active" id="button" text="Encrypt!" (tap)="showText()"></Button>

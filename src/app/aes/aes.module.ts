@@ -4,10 +4,13 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { AESRoutingModule } from "./aes-routing.module";
 import { AESComponent } from "./aes.component";
 
+import {NativeScriptFormsModule} from "nativescript-angular/forms"
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        AESRoutingModule
+        AESRoutingModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         AESComponent

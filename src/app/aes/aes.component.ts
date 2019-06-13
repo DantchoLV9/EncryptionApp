@@ -12,31 +12,46 @@ var aesjs = require('aes-js');
 export class AESComponent implements OnInit {
 
     public editState = true;
-    public outputText = "";
+    public output = "";
+    public input = "";
+
+    public textBytes;
+    public aesCtr;
+    public encryptedBytes;
+    public encryptedHex;
 
     public key_128 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    public key_192 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-               16, 17, 18, 19, 20, 21, 22, 23];
-    public key_256 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-               16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
-               29, 30, 31];
-
-    public text = "Text may be any length you wish, no padding is required.";
-    public textBytes = aesjs.utils.utf8.toBytes(this.text);
-
-    public aesCtr = new aesjs.ModeOfOperation.ctr(this.key_128, new aesjs.Counter(5));
-    public encryptedBytes = this.aesCtr.encrypt(this.textBytes);
-
-    public encryptedHex = aesjs.utils.hex.fromBytes(this.encryptedBytes);
+    public key_192 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+    public key_256 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 
     constructor() {
         // Use the component constructor to inject providers.
     }
 
+    encrypt() {
+        
+        //console.log(this.input);
+        //alert("Text: " + this.input);
+
+        this.textBytes = aesjs.utils.utf8.toBytes(this.input);
+        this.aesCtr = new aesjs.ModeOfOperation.ctr(this.key_128, new aesjs.Counter(5));
+        this.encryptedBytes = this.aesCtr.encrypt(this.textBytes);
+        this.encryptedHex = aesjs.utils.hex.fromBytes(this.encryptedBytes);
+
+        this.output = this.encryptedHex;
+
+    }
+
+    decrypt() {
+        
+    }
+
+    /*
     showText() {
         alert("Text: " + this.encryptedHex);
-        this.outputText = this.encryptedHex;
+        this.output = this.encryptedHex;
     }
+    */
 
     ngOnInit(): void {
         // Init your component properties here.
