@@ -28,11 +28,11 @@
                 <TextView [ngModel]="inputHashString" (ngModelChange)='inputHashString=$event' hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
             </StackLayout>
 
-            <Button class="btn btn-primary btn-active" id="button" text="Hash!" (tap)="hashInput()"></Button>
+            <Button class="btn btn-primary btn-active" id="button" text="Hash" (tap)="hashInput()"></Button>
 
             <StackLayout class="input-field">
                 <Label class="page-text" text="Output:" textWrap="true"></Label>
-                <TextView [(ngModel)]="outputHashString" hint="The decrypted message will appear here" [editable]="editState" class="input input-border page-text-input"></TextView>
+                <TextView [(ngModel)]="outputHashString" hint="The hash of the message will appear here" [editable]="editState" class="input input-border page-text-input"></TextView>
             </StackLayout>
 
         </StackLayout>
