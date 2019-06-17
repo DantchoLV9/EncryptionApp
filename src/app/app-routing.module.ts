@@ -11,8 +11,8 @@ const routes: Routes = [
     { path: "tdes", loadChildren: "~/app/tdes/tdes.module#TDESModule" },
     { path: "rsa", loadChildren: "~/app/rsa/rsa.module#RSAModule" },
     { path: "blowfish", loadChildren: "~/app/blowfish/blowfish.module#BlowfishModule" },
-    { path: "twofish", loadChildren: "~/app/twofish/twofish.module#TwofishModule" },
-    { path: "md5", loadChildren: "~/app/md5/md5.module#MD5Module" }
+    //{ path: "twofish", loadChildren: "~/app/twofish/twofish.module#TwofishModule" },
+    //{ path: "md5", loadChildren: "~/app/md5/md5.module#MD5Module" }
 ];
 
 @NgModule({
