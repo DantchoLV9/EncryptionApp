@@ -16,6 +16,25 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+    <ScrollView>
+        <StackLayout>
+
+            <Label class="page-text" text="The Advanced Encryption Standard, or AES, is a symmetric block cipher chosen by the U.S. government to protect classified information and is implemented in software and hardware throughout the world to encrypt sensitive data" textWrap="true"></Label>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+            <StackLayout class="input-field">
+                <Label class="page-text" text="Input:" textWrap="true"></Label>
+                <TextView [ngModel]="inputHashString" (ngModelChange)='inputHashString=$event' hint="Try it out" [editable]="editState" class="input input-border page-text-input"></TextView>
+            </StackLayout>
+
+            <Button class="btn btn-primary btn-active" id="button" text="Hash!" (tap)="hashInput()"></Button>
+
+            <StackLayout class="input-field">
+                <Label class="page-text" text="Output:" textWrap="true"></Label>
+                <TextView [(ngModel)]="outputHashString" hint="The decrypted message will appear here" [editable]="editState" class="input input-border page-text-input"></TextView>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
 </GridLayout>

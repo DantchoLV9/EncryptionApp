@@ -4,10 +4,13 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { HashingRoutingModule } from "./hashing-routing.module";
 import { HashingComponent } from "./hashing.component";
 
+import {NativeScriptFormsModule} from "nativescript-angular/forms"
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        HashingRoutingModule
+        HashingRoutingModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         HashingComponent
