@@ -12,13 +12,17 @@ var aesjs = require('aes-js');
 export class AESComponent implements OnInit {
 
     public editState = true;
-    public output = "";
-    public input = "";
+    public outputEncryption = "";
+    public inputEncryption = "";
+    public outputDecryption = "";
+    public inputDecryption = "";
 
     public textBytes;
     public aesCtr;
     public encryptedBytes;
     public encryptedHex;
+    public decryptedBytes;
+    public decryptedText;
 
     public key_128 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     public key_192 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
@@ -30,19 +34,26 @@ export class AESComponent implements OnInit {
 
     encrypt() {
         
-        //console.log(this.input);
-        //alert("Text: " + this.input);
+        //console.log(this.inputEncryption);
+        //alert("Text: " + this.inputEncryption);
 
-        this.textBytes = aesjs.utils.utf8.toBytes(this.input);
-        this.aesCtr = new aesjs.ModeOfOperation.ctr(this.key_128, new aesjs.Counter(5));
+        this.textBytes = aesjs.utils.utf8.toBytes(this.inputEncryption);
+        this.aesCtr = new aesjs.ModeOfOperation.ctr(this.key_256, new aesjs.Counter(5));
         this.encryptedBytes = this.aesCtr.encrypt(this.textBytes);
         this.encryptedHex = aesjs.utils.hex.fromBytes(this.encryptedBytes);
 
-        this.output = this.encryptedHex;
+        this.outputEncryption = this.encryptedHex;
 
     }
 
     decrypt() {
+
+        this.encryptedBytes = aesjs.utils.hex.toBytes(this.inputDecryption);
+        this.aesCtr = new aesjs.ModeOfOperation.ctr(this.key_256, new aesjs.Counter(5));
+        this.decryptedBytes = this.aesCtr.decrypt(this.encryptedBytes);
+        this.decryptedText = aesjs.utils.utf8.fromBytes(this.decryptedBytes);
+
+        this.outputDecryption = this.decryptedText;
         
     }
 
